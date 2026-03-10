@@ -122,7 +122,7 @@ export default function DawnApp() {
     setInputValue("");
     setIsLoading(true);
     try {
-      const response = await fetch("https://api.anthropic.com/v1/messages", {
+const response = await fetch("https://api.anthropic.com/v1/messages", {
   method: "POST",
   headers: { 
     "Content-Type": "application/json",
@@ -132,12 +132,6 @@ export default function DawnApp() {
   },
 ```
 
-Save, then push to GitHub:
-```
-cd C:\Users\nrbib\dawn-app
-git add .
-git commit -m "fix api key"
-git push
         body: JSON.stringify({
           model: "claude-sonnet-4-20250514",
           max_tokens: 1000,
