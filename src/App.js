@@ -123,8 +123,21 @@ export default function DawnApp() {
     setIsLoading(true);
     try {
       const response = await fetch("https://api.anthropic.com/v1/messages", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+  method: "POST",
+  headers: { 
+    "Content-Type": "application/json",
+    "x-api-key": process.env.REACT_APP_ANTHROPIC_KEY,
+    "anthropic-version": "2023-06-01",
+    "anthropic-dangerous-direct-browser-access": "true",
+  },
+```
+
+Save, then push to GitHub:
+```
+cd C:\Users\nrbib\dawn-app
+git add .
+git commit -m "fix api key"
+git push
         body: JSON.stringify({
           model: "claude-sonnet-4-20250514",
           max_tokens: 1000,
